@@ -1,0 +1,81 @@
+media:
+  input: public/uploads
+  output: /uploads
+  rename: safe
+  categories: [image]
+
+content:
+  - name: posts
+    label: 博客文章
+    type: collection
+    path: src/content/posts
+    filename: "{year}-{month}-{day}-{hour}-{minute}-{second}.md"
+
+    fields:
+      - name: title
+        label: 文章标题
+        type: string
+        required: true
+
+      - name: published
+        label: 发布日期
+        type: date
+        required: true
+
+      - name: description
+        label: 文章简介
+        type: text
+        required: false
+
+      - name: image
+        label: 封面图片
+        type: image
+        required: false
+
+      - name: category
+        label: 分类
+        type: string
+        required: false
+
+      - name: tags
+        label: 标签
+        type: select
+        required: false
+        options:
+          multiple: true
+          values:
+            - 学习笔记
+            - 科研
+            - 论文阅读
+            - 编程
+            - 项目实践
+            - 日常记录
+            - 博客
+            - Examples
+            - Guides
+            - Demo
+            - Markdown
+            - Fuwari
+            - Blogging
+            - Customization
+
+      - name: draft
+        label: 保存为草稿
+        type: boolean
+        required: false
+
+      - name: lang
+        label: 文章语言
+        type: select
+        required: false
+        options:
+          values:
+            - name: zh_CN
+              label: 中文
+            - name: en
+              label: English
+
+      - name: body
+        label: 文章正文
+        type: rich-text
+        required: true
